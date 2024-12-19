@@ -1,0 +1,205 @@
+.navbar {
+    @include extend("navbar navbar-expand-lg navbar-dark py-3");
+    color: #2d3436;
+
+    .navbar-container {
+        @include extend("container navbar-container");
+
+        @include max-md {
+            .navbar-brand {
+                margin-right: 0 !important;
+                flex: 1 !important;
+                text-align: center;
+
+                svg {
+                    max-width: 50% !important;
+                }
+            }
+        }
+
+        .navbar-toggler {
+            color: #2d3436;
+            font-size: 2em;
+            @include extend("d-md-none");
+            z-index: 1050; // Ensure it's above the overlay
+        }
+
+        .mobile-menu-overlay {
+            @include max-md {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(255, 255, 255, 0.95);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                z-index: 1040;
+                animation: slideIn 0.3s ease-out;
+            }
+        }
+
+        @include max-md {
+            .navbar-brand {
+                margin-right: 0 !important;
+                flex: 1 !important;
+                text-align: center;
+
+                svg {
+                    max-width: 50% !important;
+                }
+            }
+        }
+
+
+        .navbar-toggler {
+            font-size: 2em;
+            @include extend("d-md-none");
+        }
+
+        flex-flow: row nowrap;
+
+        .navbar-brand {
+            @include extend("navbar-brand");
+            // min-width: 150px;
+            flex: 0 1 150px;
+
+            svg {
+                height: 70px;
+                max-width: 100%;
+            }
+        }
+
+        .navbar-social-links {
+
+            &.is-mobile {
+                @include max-md {
+                    display: flex !important;
+                    flex-direction: column;
+                    justify-content: space-evenly !important;
+                    gap: 1rem;
+                    text-align: center;
+
+                    >* {
+                        width: 100%;
+
+                        a {
+                            display: block;
+                        }
+                    }
+                }
+
+                @include md {
+                    display: none !important;
+                }
+            }
+
+            @include extend("d-flex align-items-center justify-content-between col col-md-6");
+
+            .navbar-social-link {
+                @include extend("link-opacity-100");
+                text-decoration: none !important;
+
+                .icon {
+                    font-size: 1.5em;
+
+                    &.yt {
+                        color: #FF0000; // YouTube red
+                    }
+
+                    &.fb {
+                        color: #1877F2; // Facebook blue
+                    }
+
+                    &.ig {
+                        color: #C13584; // Instagram pink
+                    }
+
+                    &.tw {
+                        color: #000000
+                    }
+
+                    &.tk {
+                        color: #000000; // TikTok black
+                    }
+                }
+            }
+
+            // xs devices, eg: phones
+            @include xs {
+                display: none !important
+            }
+
+            // sm devices, eg: tablets
+            @include sm {
+                display: none !important
+            }
+
+            // &.is-mobile {
+            //     @include md {
+            //         display: none !important
+            //     }
+            // }
+
+            @include extend("d-flex align-items-center justify-content-between col col-md-6");
+            // flex: 0 1 33.33%;
+
+            .navbar-social-link {
+                @include extend("link-opacity-100");
+            }
+        }
+
+        .navbar-language-dropdown {
+            @include extend("dropdown");
+
+            .navbar-language-button {
+                @include extend("btn btn-light dropdown-toggle d-flex align-items-center");
+
+                .navbar-language-icon {
+                    @include extend("me-2");
+                    // Language icon inside the button
+                }
+            }
+
+            .navbar-language-menu {
+                @include extend("dropdown-menu dropdown-menu-end");
+                transition: .3s;
+                right: 0;
+
+                &.show {
+                    @starting-style {
+                        opacity: 0;
+                        top: 0px;
+                    }
+
+                    @include extend("d-block");
+                    opacity: 1;
+                    top: 100%
+                }
+
+
+                .navbar-language-item {
+                    @include extend("dropdown-item");
+
+                    &.latino-type {
+                        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
