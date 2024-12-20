@@ -20,7 +20,7 @@
         .navbar-toggler {
             color: #2d3436;
             font-size: 2em;
-            @include extend("d-md-none");
+            @include extend("d-md-none navbar-toggler");
             z-index: 1050; // Ensure it's above the overlay
         }
 
