@@ -182,10 +182,6 @@
 
                 .navbar-language-item {
                     @include extend("dropdown-item");
-
-                    &.latino-type {
-                        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-                    }
                 }
             }
         }
