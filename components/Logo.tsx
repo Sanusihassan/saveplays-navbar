@@ -2,7 +2,7 @@ const Logo = (props: React.ComponentProps<"svg">) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="800"
-        height="800"
+        height="70"
         viewBox="0 0 800 300"
         {...props}
     >
